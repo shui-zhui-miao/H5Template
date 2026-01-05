@@ -7,9 +7,11 @@
     name: 'SetupPage'
   })
 
-  const { appParams, jumpToUserAgreement, jumpToBlackList } = useJump()
+  const { appParams, jumpToUserAgreement, jumpToBlackList, jumpToRecharge, jumpToEditinfo } = useJump()
 
   const listData = [
+    { label: 'Wallet', value: '3' },
+    { label: 'Edit personal information', value: '4' },
     { label: 'Privacy Agreement', value: '0' },
     { label: 'User Agreement', value: '1' },
     { label: 'Blacklist', value: '2' }
@@ -28,6 +30,12 @@
     }
     if (value === '1') {
       jumpToUserAgreement('/user-agreement')
+    }
+    if (value === '3') {
+      jumpToRecharge()
+    }
+    if (value === '4') {
+      jumpToEditinfo()
     }
   }
 </script>

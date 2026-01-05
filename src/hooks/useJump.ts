@@ -82,6 +82,13 @@ export const useJump = () => {
     })
   }
 
+  /** 跳转到个人信息修改页面 */
+  const jumpToEditinfo = () => {
+    router.replace({
+      path: '/edit-info',
+    })
+  }
+
   /** 跳转私聊 */
   const jumpToPrivateChat = (id: string, cid: string) => {
     router.replace({
@@ -186,7 +193,8 @@ export const useJump = () => {
     jumpToCall,
     jumpToChatDetail,
     jumpToPrivateChat,
-    queryId
+    queryId,
+    jumpToEditinfo
   }
 }
 
