@@ -7,14 +7,13 @@
     name: 'SetupPage'
   })
 
-  const { appParams, jumpToUserAgreement, jumpToBlackList, jumpToRecharge, jumpToEditinfo } = useJump()
+  const { appParams, jumpToUserAgreement, jumpToBlackList, jumpToEditinfo } = useJump()
 
   const listData = [
     { label: 'Privacy Agreement', value: '0' },
     { label: 'User Agreement', value: '1' },
     { label: 'Blacklist', value: '2' },
-    { label: 'Wallet', value: '3' },
-    { label: 'Edit personal information', value: '4' }
+    { label: 'Edit personal information', value: '3' }
   ]
 
   const onState = (key: AppCommunication) => {
@@ -32,9 +31,6 @@
       jumpToUserAgreement('/user-agreement')
     }
     if (value === '3') {
-      jumpToRecharge()
-    }
-    if (value === '4') {
       jumpToEditinfo()
     }
   }

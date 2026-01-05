@@ -78,8 +78,7 @@ export const useJump = () => {
   const jumpToRecharge = () => {
     router.replace({
       path: '/gold-coin',
-      //query: { url: 'chat-view' }
-      query: { url: 'ReportIndex' }
+      query: { url: 'chat-view' }
     })
   }
 
