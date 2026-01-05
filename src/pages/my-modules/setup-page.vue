@@ -10,11 +10,11 @@
   const { appParams, jumpToUserAgreement, jumpToBlackList, jumpToRecharge, jumpToEditinfo } = useJump()
 
   const listData = [
-    { label: 'Wallet', value: '3' },
-    { label: 'Edit personal information', value: '4' },
     { label: 'Privacy Agreement', value: '0' },
     { label: 'User Agreement', value: '1' },
-    { label: 'Blacklist', value: '2' }
+    { label: 'Blacklist', value: '2' },
+    { label: 'Wallet', value: '3' },
+    { label: 'Edit personal information', value: '4' }
   ]
 
   const onState = (key: AppCommunication) => {

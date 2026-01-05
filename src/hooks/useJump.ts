@@ -86,6 +86,7 @@ export const useJump = () => {
   const jumpToEditinfo = () => {
     router.replace({
       path: '/edit-info',
+      query: { url: 'setup-page' }
     })
   }
 
