@@ -47,7 +47,7 @@ window.publishImageListJson = window.publishImageListJson || [
 
 /** 聊天机器人说明 */
 window.chatBotDesc = window.chatBotDesc || {
-  title: '这个是标题',
-  content: '内容说明',
-  points: 100
+  title: 'Soeva AI',
+  content: 'hi! I\'m Yogi, your personal yoga AI assistant. Whether you are a beginner or an experienced practitioner, I am here to provide guidance for your practice, answer your questions, and help you find peace and strength. Are you ready to grow together?',
+  points: 200
 }

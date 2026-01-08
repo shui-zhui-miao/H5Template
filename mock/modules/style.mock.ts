@@ -4,33 +4,33 @@
  */
 export default {
   /** 返回按钮背景图 */
-  backImage: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_back.png',
+  backImage: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_back.png',
   /** 返回图片大小 */
   backImageSize: {
-    width: '24px',
-    height: '24px'
+    width: '40px',
+    height: '40px'
   },
   /** 顶部右侧举报图片 */
-  reportImage: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_report.png',
+  reportImage: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_report.png',
   /** 举报图标大小 */
   reportImageSize: {
-    width: '24px', //图标宽度
-    height: '24px', //图标高度
+    width: '40px', // 图标宽度
+    height: '40px' // 图标高度
   },
   /** 点赞图标 */
-  likeIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_like.png',
+  likeIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_like.png',
 
   /** 点赞图标大小 */
   unlikeImageSize: {
-    width: '40px', //图标宽度
-    height: '40px', //图标高度
+    width: '40px', // 图标宽度
+    height: '40px' // 图标高度
   },
   /** 点赞数量文本样式 */
-  likeNumTextStyle: { fontSize: '12px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.8)' },
+  likeNumTextStyle: { fontSize: '14px', fontWeight: '400', color: 'rgba(255, 255, 255, 1)' },
   /** 用户名文本样式 */
   userNameStyle: {
     fontSize: '16px',
-    fontWeight: '400',
+    fontWeight: '700',
     color: 'rgba(255, 255, 255, 1)'
   },
   /** 头像样式（页面通用头像，小型的） */
@@ -63,9 +63,9 @@ export default {
     color: 'rgba(255, 255, 255, 0.8)',
     placeholderCorlor: 'rgba(255, 255, 255, 0.4)',
     /** 右侧发送图标 */
-    sendIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_send_icon.png',
+    sendIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_send_icon.png',
     sendIconWidth: '21px',
-    sendIconHeight: '21px',
+    sendIconHeight: '21px'
   },
   /** 表单标题样式 */
   formTitleStyle: {
@@ -152,9 +152,9 @@ export default {
       width: '227px',
       height: '56px',
       color: 'rgba(255, 255, 255, 1)',
-      rightIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_ai_chat_arr.png',
+      rightIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_ai_chat_arr.png',
       rightIconWidth: '21px',
-      rightIconHeight: '21px',
+      rightIconHeight: '21px'
     },
     /** 弹框样式 */
     popupStyle: {
@@ -174,7 +174,7 @@ export default {
       bgImageStyle: {
         width: '280px',
         height: '210px',
-        bgImg: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_ai_pay_bg.png',
+        bgImg: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_ai_pay_bg.png'
       }
     }
   },
@@ -196,15 +196,15 @@ export default {
   shortVideoStyle: {
     backgroundColor: '#0e080f',
     /** 添加图标 */
-    addIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_follow.png',
+    addIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_follow.png',
     addIconWidth: '20px',
     addIconHeight: '20px',
     /** 留言图标 */
-    messageIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/video_comments.png',
+    messageIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_video_comments.png',
     messageIconWidth: '40px',
     messageIconHeight: '40px',
     /** 点赞图标 */
-    likeIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_like_post.png',
+    likeIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_like_post.png',
     avatarWidth: '48px',
     avatarHeight: '48px',
     /** 按钮样式 */
@@ -223,15 +223,15 @@ export default {
   otherHomeStyle: {
     backgroundColor: '#0e080f',
     /** 关注他人图标 */
-    addIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_follow.png',
+    addIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_follow.png',
     addIconWidth: '20px',
     addIconHeight: '20px',
     /** 留言图标 */
-    messageIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/video_comments.png',
+    messageIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_video_comments.png',
     messageIconWidth: '40px',
     messageIconHeight: '40px',
     /** 点赞图标 */
-    likeIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/sivio_like_post.png',
+    likeIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_like_post.png',
     likeIconWidth: '40px',
     likeIconHeight: '40px',
     /** 顶部数据样式 */
