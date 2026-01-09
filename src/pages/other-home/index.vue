@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { showLoadingToast } from 'vant'
   import Head from '@/assets/public/Head.png'
+  import fjm from '@/assets/public/vejivnfnvn.png'
   import { useAppImgStyle } from '@/hooks/useAppImgStyle'
   import { detailId } from '@/hooks/useDetail'
   import { useJump } from '@/hooks/useJump'
@@ -12,14 +13,13 @@
   })
 
   const {
-    reportIcon,
     otherHomeAddIcon,
     otherHomeMessageIcon,
     otherHomeLikeIcon
   } = useAppImgStyle()
   const { queryId, jumpToDetail, appParams, jumpToPrivateChat } =
     useJump()
-  const { winUserListData, winDynamicData, winChatListData } = useWindow()
+  const { winUserListData, winDynamicData, winChatListData, winPublishImageListData } = useWindow()
   const useData = useUserStore()
 
   // 举报弹框
@@ -30,6 +30,11 @@
   /** 是否显示关注 */
   const isShowFollow = ref(false)
   const allUserList = ref<UserInfo[]>(winUserListData)
+
+  const getDynamicTitleName = (type: number) => {
+    const item = winPublishImageListData.find(item => item.value === type)
+    return item ? item.name : ''
+  }
 
   const getData = () => {
     userInfo.value = winUserListData.find(v => v.userId === queryId.value)
@@ -129,7 +134,7 @@
         backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%), url(${userInfo.avator || Head})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
       }"
 >
       <div class="avatar-info">
@@ -183,9 +188,6 @@
               height: 'var(--other-home-chat-height)'
             }"
 />
-          <!-- <span ml-3 class="public-number !mt-0" @click="onAddChat">
-            Chat
-          </span> -->
           <span class="c" @click="onAddChat">
             Chat
           </span>
@@ -194,39 +196,43 @@
     </div>
 
     <div p-layout-padding class="bottom-card">
-      <!-- 内容卡片 -->
       <div
         v-for="(item, index) in bottomList"
         :key="index"
         class="card-item"
         @click="onGoDetail(item)"
       >
-        <ul class="top-info">
-          <!-- <li>
-            <van-image round ai-avatar :src="Head" fit="cover" />
-            <span mx-2 ai-user-name>Apien</span>
-            <span ai-tag-btn class="tag"># Theme</span>
-          </li> -->
-          <!-- <li /> -->
-          <li>
-            <van-image
+        <div class="background-container">
+          <div class="row-container">
+            <div class="avatar-wrapper">
+              <van-image
+                round
+                ai-avatar
+                :src="userInfo.avator || Head"
+                fit="cover"
+                class="avatar-img"
+              />
+            </div>
+            <div class="text-container">
+              <span class="username">{{ userInfo.name }}</span>
+            </div>
+            <div
               v-if="shouldShowReport(item)"
-              :src="reportIcon"
-              :style="{
-                width: 'var(--report-image-width)',
-                height: 'var(--report-image-height)'
-              }"
+              class="report-icon"
               @click.stop="
                 () => {
                   isReport = true
                   detailId = item.userId
                 }
               "
-            />
-          </li>
-        </ul>
-        <ul class="bottom-img">
-          <li w-full>
+            >
+              <van-image
+                :src="fjm"
+                style="width: 24px; height: 24px;"
+              />
+            </div>
+          </div>
+          <div class="dynamic-container">
             <van-image
               rounded-2
               h-50
@@ -235,30 +241,175 @@
               :src="item.dynamicPic[0] || Head"
               fit="cover"
               position="top"
+              class="dynamic-image"
             />
-          </li>
-          <!-- <li>
-            <van-image rounded-2 h-23.5 w-22 overflow-hidden :src="Head" fit="cover" />
-            <van-image rounded-2 h-23.5 w-22 overflow-hidden :src="Head" fit="cover" />
-          </li> -->
-        </ul>
-        <span class="bottom-text">{{ item.dynamicDesc }}</span>
-        <div class="like-box">
-          <van-image :src="otherHomeLikeIcon" class="icon-box" :style="{
-              width: 'var(--other-home-like-post-width)',
-              height: 'var(--other-home-like-post-height)'
-            }"
-/>
-          <span class="public-number">{{ item.dynamicLikeCount }}</span>
+            <div class="stats-container">
+              <div class="stat-item">
+                <div class="stat-item-inner">
+                  <img
+                    :src="otherHomeLikeIcon"
+                    class="stat-icon"
+                  />
+                  <span class="stat-number">{{ item.dynamicLikeCount }}</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-item-inner">
+                  <img
+                    src="@/assets/public/rguyvsfbmuieyhbgvsfdjvknuyhsefdvhjc.png"
+                    class="stat-icon"
+                  />
+                  <span class="stat-number">{{ item.dynamicCommentCount }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-if="item.dynamicType === 0" class="theme-tag">
+            <span>{{ getDynamicTitleName(item.dynamicTitleType) }}</span>
+          </div>
         </div>
       </div>
     </div>
-
     <report-box v-model:show="isReport" />
   </div>
 </template>
 
 <style lang="less" scoped>
+.background-container {
+  width: 100%;
+  height: 272px;
+  background-image: url('@/assets/public/reuygwbfvmsklvhjdbfiuehrgvnvfoeiuwvhjvnf.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 16px 12px 6px 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.row-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(180deg, #6BD0FF 0%, #19FBC1 100%);
+  border-radius: 50%;
+  padding: 1px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.text-container {
+  flex: 1;
+  padding: 0 10px;
+  min-width: 0;
+}
+
+.username {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.report-icon {
+  padding-right: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.report-icon .van-image {
+  color: white;
+  font-size: 24px;
+}
+
+.dynamic-container {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.dynamic-image-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.dynamic-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.stats-container {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.stat-item {
+  height: 22px;
+  background: linear-gradient(90deg, #6BD0FF 0%, #19FBC1 100%);
+  border-radius: 11px;
+  padding: 1px;
+  box-sizing: border-box;
+}
+
+.stat-item-inner {
+  height: 100%;
+  background-color: black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  gap: 2px;
+}
+
+.stat-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+}
+
+.stat-number {
+  color: white;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.theme-tag {
+  color: white;
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
   .c {
     display: inline-block;
     margin-left: 10px;
@@ -278,6 +429,7 @@
 
   .top-user-info {
     // background: url('@/assets/public/top-home.png');
+    padding-bottom: 16px;
     background-size: cover;
     width: 100%;
     height: 346px;
@@ -335,7 +487,7 @@
   }
 
   .avatar-info {
-    padding: 96px 0 0;
+    padding: 80px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -350,71 +502,6 @@
   .bottom-card {
     .card-item + .card-item {
       margin-top: 20px;
-    }
-
-    .card-item {
-      background: rgba(40, 35, 41, 0.8);
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-
-      .top-info {
-        padding: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        li {
-          display: flex;
-          align-items: center;
-
-          .tag {
-            background: rgba(255, 255, 255, 0.2);
-          }
-        }
-      }
-
-      .bottom-img {
-        padding: 0 16px 16px;
-        display: flex;
-        justify-content: space-between;
-
-        li {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-      }
-
-      .bottom-text {
-        position: absolute;
-        bottom: 0;
-        background: linear-gradient(
-          90deg,
-          #0e080f78 0%,
-          rgba(14, 8, 15, 0) 100%
-        );
-        height: 42px;
-        width: 100%;
-        line-height: 42px;
-        padding: 0 16px;
-        font-size: var(--ai-other-home-card-desc-text-size);
-        font-weight: var(--ai-other-home-card-desc-text-weight);
-        color: var(--ai-other-home-card-desc-text-color);
-        text-align: var(--ai-other-home-card-desc-text-sort);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .like-box {
-        position: absolute;
-        bottom: 26px;
-        right: 10px;
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-      }
     }
   }
 </style>

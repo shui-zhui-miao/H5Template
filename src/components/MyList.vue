@@ -21,16 +21,29 @@
     }
   )
 
-  const rightIcon = computed(() => {
+  // const rightIcon = computed(() => {
+  //   switch (props.type) {
+  //     case 'follow':
+  //       return 'minus'
+  //     case 'fans':
+  //       return 'plus'
+  //     case 'blackList':
+  //       return 'cross'
+  //     default:
+  //       return 'minus'
+  //   }
+  // })
+
+  const buttonText = computed(() => {
     switch (props.type) {
       case 'follow':
-        return 'minus'
+        return 'Cancel'
       case 'fans':
-        return 'plus'
+        return 'Follow'
       case 'blackList':
-        return 'cross'
+        return 'Remove'
       default:
-        return 'minus'
+        return 'Cancel'
     }
   })
 
@@ -79,32 +92,87 @@
       flex
       items-center
       justify-between
-      class="list-box rounded-[20px] bg-[#282329cc]"
+      class="list-box rounded-[20px] bg-[#ffffff32]"
     >
       <ul>
         <li flex items-center>
-          <van-image
-            round
-            ai-avatar
-            :src="item.avator || Head"
-            fit="cover"
-          />
+          <div class="avatar-wrapper">
+            <van-image
+              round
+              ai-avatar
+              :src="item.avator || Head"
+              fit="cover"
+            />
+          </div>
           <span ml-4 ai-user-name>{{ item.name }}</span>
         </li>
         <li v-if="props.type !== 'blackList'" mt-2>
           <span ai-text-desc>{{ item.about }}</span>
         </li>
       </ul>
-      <van-icon
+      <!-- <van-icon
         color="#fff"
         :name="rightIcon"
         @click="onClick(item.userId, index)"
-      />
-    </div>
-  </div>
+      /> -->
+      <div
+        class="action-button"
+        :class="props.type"
+        @click="onClick(item.userId, index)"
+      >
+        <span class="button-text">
+          {{ buttonText }}
+        </span>
+      </div>
+          </div>
+        </div>
 </template>
 
 <style lang="less" scoped>
+  .action-button {
+    width: 63px;
+    height: 28px;
+    background: #fff;
+    border-radius: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &.follow {
+      .button-text {
+        color: #333;
+      }
+    }
+
+    &.fans {
+      .button-text {
+        color: #333;
+      }
+    }
+
+    &.blackList {
+      .button-text {
+        color: #333;
+      }
+    }
+  }
+
+.button-text {
+  font-size: 12px;
+  font-weight: normal;
+}
+  .avatar-wrapper {
+    position: relative;
+    border-radius: 50%;
+    padding: 1px;
+    background: linear-gradient(136deg, rgba(25, 251, 193, 1) 0%, rgba(107, 208, 255, 1) 100%);
+
+    .van-image {
+      display: block;
+      border-radius: 50%;
+    }
+  }
   .list-box + .list-box {
     margin-top: 16px;
   }

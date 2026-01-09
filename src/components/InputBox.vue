@@ -21,16 +21,17 @@
         v-model="value"
         safe-area-inset-bottom
         placeholder="Say something"
+        style="box-shadow: 0px 2px 4px  rgba(0, 0, 0, 0.1);"
       >
         <template #button>
           <div flex items-center>
-            <van-image 
-              :src="inputSendIcon" 
-              @click="onSend"
+            <van-image
+              :src="inputSendIcon"
               :style="{
                 width: 'var(--comment-input-image-width)',
                 height: 'var(--comment-input-image-height)'
               }"
+              @click="onSend"
              />
           </div>
         </template>
@@ -49,15 +50,16 @@
     justify-content: center;
 
     opacity: 1;
-    background: linear-gradient(
-      0deg,
-      rgba(14, 8, 15, 0.8) 0%,
-      rgba(14, 8, 15, 0) 100%
-    );
+    // background: linear-gradient(
+    //   0deg,
+    //   rgba(14, 8, 15, 0.8) 0%,
+    //   rgba(14, 8, 15, 0) 100%
+    // );
 
     .input--width {
       width: var(--ai-field-input-width);
       padding-bottom: calc(10px + var(--ai-view-padding-bottom));
+
     }
 
     .van-field {

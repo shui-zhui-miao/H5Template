@@ -98,13 +98,26 @@
     </div>
 
     <!-- 底部按钮 -->
-    <div mt-20 flex justify-center>
-      <div ai-gradient-btn @click="onSubmlt">Submlt</div>
+    <div mt-10 flex justify-center>
+      <div ai-gradient-btn @click="onSubmlt">
+        <div class="c">Submlt</div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
+  .c {
+    background: #000000;
+    border-radius: 26px;
+    margin: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
   .report-index_box {
     padding-top: calc(
       var(--van-nav-bar-height) + var(--ai-view-padding-top)
@@ -114,6 +127,7 @@
   }
 
   .top-select {
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

@@ -77,27 +77,85 @@
 
 <template>
   <van-popup v-model:show="show" round position="bottom">
-    <ul class="report-box">
-      <li>
-        <p ai-default-btn @click="onReport">Report</p>
-      </li>
-      <li>
-        <p ai-default-btn @click="onShield">Shield</p>
-      </li>
-      <li>
-        <p ai-default-btn ai-selected-btn @click="show = false">Cancel</p>
-      </li>
-    </ul>
+    <div class="popup-container">
+      <div class="action-btn report-btn" @click="onReport">
+        <span class="btn-text">Report</span>
+      </div>
+      <div class="action-btn shield-btn" @click="onShield">
+        <span class="btn-text">Shield</span>
+      </div>
+      <div class="action-btn cancel-btn" @click="show = false">
+        <div class="cancel-btn-inner">
+          <span class="cancel-text">Cancel</span>
+        </div>
+      </div>
+    </div>
   </van-popup>
 </template>
 
 <style lang="less" scoped>
+  .popup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0 30px;
+  background-color: #EBECED;
+  gap: 16px;
+}
+
+.action-btn {
+  width: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.report-btn, .shield-btn {
+  height: 46px;
+  background-color: white;
+  border-radius: 23px;
+  box-shadow: 0px 2px 4px  rgba(0, 0, 0, 0.1);
+}
+
+.btn-text {
+  color: black;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.cancel-btn {
+  height: 58px;
+  margin-top: 5px;
+  background: linear-gradient(135deg, #6BD0FF 0%, #19FBC1 100%);
+  border-radius: 29px;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.cancel-btn-inner {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 29px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cancel-text {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
   .report-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0 30px;
+    background-color: #EBECED;
 
     li + li {
       margin-top: 16px;

@@ -86,7 +86,7 @@
         round
         h-7
         w-7
-        bottom-0
+        top-0
         right-36
         absolute
         :src="upImg"
@@ -96,22 +96,24 @@
     </div>
 
     <div px-layout-padding>
-      <div ai-input-title style="margin-bottom: 16px">Name</div>
-      <van-field
-        v-model="formData.name"
-        placeholder="Please enter"
-        class="public-input"
-      />
-    </div>
+  <div ai-input-title style="margin-bottom: 16px">Name</div>
+  <van-field
+    v-model="formData.name"
+    placeholder="Please enter"
+    class="public-input name-input"
+  />
+</div>
 
-    <div px-layout-padding pt-6>
-      <div ai-input-title style="margin-bottom: 16px">About me</div>
-      <van-field
-        v-model="formData.about"
-        placeholder="Please enter"
-        class="public-input"
-      />
-    </div>
+<div px-layout-padding pt-6>
+  <div ai-input-title style="margin-bottom: 16px">About me</div>
+  <van-field
+    v-model="formData.about"
+    placeholder="Please enter"
+    class="public-input about-input"
+    type="textarea"
+    rows="3"
+  />
+</div>
 
     <!-- 底部按钮 -->
     <div mt-50 flex justify-center>
@@ -123,6 +125,37 @@
 </template>
 
 <style lang="less" scoped>
+.public-input {
+  background-color: white !important;
+}
+
+.public-input :deep(.van-field__control)::-webkit-input-placeholder {
+  color: rgb(87, 96, 115);
+}
+
+.public-input :deep(.van-field__control)::-moz-placeholder {
+  color: rgb(87, 96, 115);
+}
+
+.public-input :deep(.van-field__control):-ms-input-placeholder {
+  color: rgb(87, 96, 115);
+}
+
+.public-input :deep(.van-field__control)::-ms-input-placeholder {
+  color: rgb(87, 96, 115);
+}
+
+.public-input :deep(.van-field__control)::placeholder {
+  color: rgb(87, 96, 115);
+}
+
+.public-input :deep(.van-field__control) {
+  color: rgb(0, 0, 0);
+}
+
+.about-input :deep(.van-field__control) {
+  min-height: 60px; /* 3行文本的大致高度 */
+}
   .edit-info_box {
     padding-top: calc(
       var(--van-nav-bar-height) + var(--ai-view-padding-top)

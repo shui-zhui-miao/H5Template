@@ -56,12 +56,12 @@
       </div>
 
       <div v-if="item.position === 'right'">
-        <div flex justify-end class="content">
+<div flex justify-end class="content">
           <div v-if="item.sendContent" class="user-chat">
             <p ai-text-desc class="send-box">
               {{ item.sendContent }}
             </p>
-          </div>
+</div>
           <van-image
             round
             ml-3
@@ -81,7 +81,7 @@
             class="mt-4 !rounded-xl !overflow-hidden"
           />
         </div>
-      </div>
+</div>
     </div>
     <input-box safe-area-inset-bottom @send="onSend" />
   </div>

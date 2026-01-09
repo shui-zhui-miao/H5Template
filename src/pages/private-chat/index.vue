@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import LeftIcon from '@/assets/nav-bar/back.svg'
-  import RightMore from '@/assets/nav-bar/more.svg'
+  // import LeftIcon from '@/assets/nav-bar/back.svg'
+  // import RightMore from '@/assets/nav-bar/more.svg'
   import Head from '@/assets/public/Head.png'
   import ImgIcon from '@/assets/public/img-icon.png'
   import VideoIcon from '@/assets/public/video-icon.png'
@@ -128,15 +128,20 @@
     >
       <template #left>
         <div flex items-center>
-          <van-image :src="LeftIcon" h-6 w-6 />
           <van-image
-            round
-            mx-3
-            ai-avatar
-            :src="viewInfo.avator || Head"
-            fit="cover"
+            src="https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_back.png"
+            h-10
+            w-10
           />
-          <span mt-1 ai-user-name>{{ viewInfo.name }}</span>
+          <div class="avatar-border-wrapper">
+            <van-image
+              round
+              :src="viewInfo.avator || Head"
+              fit="cover"
+              class="avatar-img"
+            />
+          </div>
+          <span mt-1 ai-user-name style="color: rgb(0, 0, 0);">{{ viewInfo.name }}</span>
         </div>
       </template>
       <template #right>
@@ -149,9 +154,9 @@
           @click="jumpToCall(viewInfo.userId, queryId)"
         />
         <van-image
-          :src="RightMore"
-          h-6
-          w-6
+          src="https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_report.png"
+          h-10
+          w-10
           @click="
             () => {
               detailId = viewInfo.userId
@@ -171,6 +176,21 @@
 </template>
 
 <style lang="less" scoped>
+.avatar-border-wrapper {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  background: white;
+  border-radius: 50%;
+  padding: 1px;
+  margin-left: 15px;
+  margin-right: 12px;
+}
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+}
   .private-chat_box {
     min-height: 100vh;
     background: var(--ai-private-chat-bg-color);
