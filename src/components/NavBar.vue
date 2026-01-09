@@ -44,7 +44,7 @@
     const show = ['OtherHome'].includes(
       route.name as string
     )
-    if (show) { 
+    if (show) {
       return queryId.value !== userInfo.userId
     }
     return show
@@ -117,15 +117,15 @@
     @click-left="onBack"
   >
     <template v-if="showLeftArrow" #left>
-      <div flex items-end justify-center>
-        <van-image 
-          :src="backIcon" 
+      <div flex items-center justify-center>
+        <van-image
+          :src="backIcon"
           :style="{
             width: 'var(--back-image-width)',
             height: 'var(--back-image-height)',
           }"
         />
-        <span v-if="showTitle" ml-2 ai-user-name>{{ title }}</span>
+        <span v-if="showTitle" ml-2 ai-user-name class="c">{{ title }}</span>
       </div>
     </template>
     <template #right>
@@ -152,5 +152,18 @@
       rgba(14, 8, 15, 1) 0%,
       rgba(14, 8, 15, 0) 100%
     );
+  }
+  .c {
+    background: linear-gradient(
+      90deg,
+      rgba(25, 251, 193, 1) 0%,
+      rgba(107, 208, 255, 1) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 20px;
+    font-weight: 700;
   }
 </style>

@@ -6,6 +6,10 @@ interface GeneralStyle {
   backgroundColor: string
 }
 
+interface GeneralStyleImage {
+  background: string
+}
+
 /** 字体样式 */
 interface FontStyle {
   fontSize?: string
@@ -185,16 +189,16 @@ interface Window {
 
     /** 举报图标大小 */
     reportImageSize: {
-      width: string, //图标宽度
-      height: string, //图标高度
-    },
+      width: string // 图标宽度
+      height: string // 图标高度
+    }
     /** 点赞图标 */
     likeIcon: string
     /** 点赞图标大小 */
     unlikeImageSize: {
-      width: string, //图标宽度
-      height: string, //图标高度
-    },
+      width: string // 图标宽度
+      height: string // 图标高度
+    }
     /** 点赞数量文本样式 */
     likeNumTextStyle: FontStyle
     /** 用户名称样式 */
@@ -212,9 +216,9 @@ interface Window {
     inputStyle: BorderStyle & {
       /** 右侧发送图标 */
       sendIcon: string
-      placeholderCorlor: string,
-      sendIconWidth: string,
-      sendIconHeight: string,
+      placeholderCorlor: string
+      sendIconWidth: string
+      sendIconHeight: string
     }
     /** 表单标题 */
     formTitleStyle: FontStyle & {
@@ -261,9 +265,9 @@ interface Window {
     /** 动态详情页 - articleDetail 路由 */
     articleDetailStyle: GeneralStyle
     /** 发布动态 - SendDynamic 路由 */
-    sendDynamicStyle: GeneralStyle
+    sendDynamicStyle: GeneralStyleImage
     /** 聊天机器人 - ChatView 路由 */
-    chatViewStyle: GeneralStyle & {
+    chatViewStyle: GeneralStyleImage & {
       /** 描述文本颜色 */
       textCorlor: string
       /** 按钮 */
@@ -271,9 +275,9 @@ interface Window {
         width: string
         height: string
         color: string
-        rightIcon: string,//右箭头图标
-        rightIconWidth: string,
-        rightIconHeight: string,
+        rightIcon: string// 右箭头图标
+        rightIconWidth: string
+        rightIconHeight: string
       }
       /** 弹框样式 */
       popupStyle: {
@@ -290,7 +294,7 @@ interface Window {
       }
     }
     /** 聊天详情 - ChatDetails 路由 */
-    chatDetailsStyle: GeneralStyle & {
+    chatDetailsStyle: GeneralStyleImage & {
       /** 顶部文本样式 */
       topTextStyle: BorderStyle
     }
@@ -299,14 +303,16 @@ interface Window {
     shortVideoStyle: GeneralStyle & {
       /** 关注他人图标 */
       addIcon: string
-      addIconWidth: string,
-      addIconHeight: string,
+      addIconWidth: string
+      addIconHeight: string
       /** 留言图标 */
       messageIcon: string
-      messageIconWidth: string,
-      messageIconHeight: string,
+      messageIconWidth: string
+      messageIconHeight: string
       /** 点赞图标 */
       likeIcon: string
+      likeIconWidth: string
+      likeIconHeight: string
       avatarWidth: string
       avatarHeight: string
       /** 按钮样式 */
@@ -314,21 +320,21 @@ interface Window {
     }
 
     /** 发布视频 - PublishVideo 路由 */
-    publishVideoStyle: GeneralStyle & {}
+    publishVideoStyle: GeneralStyleImage & {}
     /** 其他主页 - OtherHome */
     otherHomeStyle: GeneralStyle & {
       /** 添加图标 */
       addIcon: string
-      addIconWidth: string,
-      addIconHeight: string,
+      addIconWidth: string
+      addIconHeight: string
       /** 留言图标 */
       messageIcon: string
-      messageIconWidth: string,
-      messageIconHeight: string,
+      messageIconWidth: string
+      messageIconHeight: string
       /** 点赞图标 */
       likeIcon: string
-      likeIconWidth: string,
-      likeIconHeight: string,
+      likeIconWidth: string
+      likeIconHeight: string
       /** 顶部数据样式 */
       topDataStyle: {
         /** 说明 */
@@ -345,7 +351,7 @@ interface Window {
     }
 
     /** 举报 - ReportIndex 路由 */
-    reportIndexStyle: GeneralStyle & {
+    reportIndexStyle: GeneralStyleImage & {
       /** 选项样式 */
       selectBtnStyle: BorderStyle
     }
@@ -354,7 +360,7 @@ interface Window {
     privateChatStyle: GeneralStyle
 
     /** 设置 - Setting 路由 */
-    settingStyle: GeneralStyle & {
+    settingStyle: GeneralStyleImage & {
       /** 选择项样式 */
       selectBtnStyle: BorderStyle
       /** 按钮文本样式 */
@@ -362,15 +368,15 @@ interface Window {
     }
 
     /** 关注 - Follow 路由 */
-    followStyle: GeneralStyle
+    followStyle: GeneralStyleImage
     /** 粉丝 - Fans 路由 */
-    fansStyle: GeneralStyle
+    fansStyle: GeneralStyleImage
     /** 黑名单 - BlackList 路由 */
-    blackListStyle: GeneralStyle
+    blackListStyle: GeneralStyleImage
     /** 修改信息 - Edit 路由  */
-    editStyle: GeneralStyle
+    editStyle: GeneralStyleImage
     /** 我的金币 - Coin */
-    coinStyle: GeneralStyle & {
+    coinStyle: GeneralStyleImage & {
       /** 选项设置 */
       selectBtnStyle: BorderStyle & {
         /** 选中颜色 */

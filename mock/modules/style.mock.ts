@@ -22,8 +22,8 @@ export default {
 
   /** 点赞图标大小 */
   unlikeImageSize: {
-    width: '40px', // 图标宽度
-    height: '40px' // 图标高度
+    width: '24px', // 图标宽度
+    height: '24px' // 图标高度
   },
   /** 点赞数量文本样式 */
   likeNumTextStyle: { fontSize: '14px', fontWeight: '400', color: 'rgba(255, 255, 255, 1)' },
@@ -44,33 +44,33 @@ export default {
   },
   /** 标签样式（如：描述下面的标签） */
   tagStyle: {
-    backgroundColor: 'rgb(35, 30, 36)',
+    backgroundColor: 'linear-gradient(135deg, rgba(25, 251, 193, 1) 0%, rgba(107, 208, 255, 1) 100%)',
     borderRadius: '20px',
     width: '65px',
     height: '26px',
     fontSize: '12px',
     fontWeight: '400',
-    color: 'rgb(255, 255, 255)'
+    color: 'rgba(0, 0, 0, 1)'
   },
   /** 文本输入框（发送内容）样式 */
   inputStyle: {
-    backgroundColor: 'rgba(62, 57, 63, 1)',
+    backgroundColor: 'rgba(25, 251, 193, 1)',
     borderRadius: '30px',
     width: '100%',
-    height: '46px',
+    height: '54px',
     fontSize: '14px',
     fontWeight: '400',
-    color: 'rgba(255, 255, 255, 0.8)',
-    placeholderCorlor: 'rgba(255, 255, 255, 0.4)',
+    color: 'rgba(0, 0, 0, 1)',
+    placeholderCorlor: 'rgba(153, 153, 153, 1)',
     /** 右侧发送图标 */
     sendIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_send_icon.png',
-    sendIconWidth: '21px',
-    sendIconHeight: '21px'
+    sendIconWidth: '30px',
+    sendIconHeight: '30px'
   },
   /** 表单标题样式 */
   formTitleStyle: {
     fontSize: '20px',
-    fontWeight: '400',
+    fontWeight: '700',
     color: 'rgba(255, 255, 255, 1)',
     marginBottom: '20px'
   },
@@ -78,15 +78,15 @@ export default {
   formRichTextStyle: {
     fontSize: '14px',
     fontWeight: '400',
-    color: 'rgb(255, 255, 255)',
-    backgroundColor: '#0e080f',
-    placeholderCorlor: 'rgba(255, 255, 255, 0.4)'
+    color: 'rgba(0, 0, 0, 1)',
+    backgroundColor: '#ffffff',
+    placeholderCorlor: 'rgba(87, 96, 115, 1)'
   },
   /** 表单按钮样式 */
   formBtnStyle: {
-    backgroundColor: 'rgba(62, 57, 63, 1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.16)',
     borderRadius: '20px',
-    fontSize: '18px',
+    fontSize: '14px',
     fontWeight: '400',
     color: 'rgba(255, 255, 255, 1)'
   },
@@ -102,55 +102,55 @@ export default {
   /** 高亮按钮样式 */
   highlightBtnStyle: {
     color: 'rgba(255, 255, 255, 1)',
-    backgroundColor: 'linear-gradient(151.23deg, rgba(71, 252, 255, 1) 0%, rgba(255, 94, 135, 1) 100%)'
+    backgroundColor: 'linear-gradient(135deg, rgba(25, 251, 193, 1) 0%, rgba(107, 208, 255, 1) 100%)'
   },
   /** 确认按钮样式 */
   confirmBtnStyle: {
-    borderRadius: '20px',
-    width: '182px',
-    height: '46px',
+    borderRadius: '29px',
+    width: '264px',
+    height: '58px',
     fontSize: '20px',
-    fontWeight: '400'
+    fontWeight: '700'
   },
   /** 聊天列表样式 */
   chatListStyle: {
     avatarWidth: '44px',
     avatarHeight: '44px',
-    borderRadius: '24px',
+    borderRadius: '22px',
     /** 发送背景色 */
-    sendBgColor: '#434044',
+    sendBgColor: 'rgba(107, 208, 255, 1)',
     /** 接收背景色 */
-    receiveBgColor: 'linear-gradient(157.71deg, rgba(255, 94, 135, 1) 0%, rgba(71, 252, 255, 1) 100%)'
+    receiveBgColor: 'rgba(25, 251, 193, 1)'
   },
   /** 举报按钮 */
   reportBtnStyle: {
     /** 选择项按钮 */
     selectBtnStyle: {
-      width: '260px',
+      width: '240px',
       height: '46px'
     },
     /** 取消按钮 */
     cancelBtnStyle: {
-      width: '182px',
+      width: '240px',
       height: '46px'
     }
   },
   /** 动态详情页 */
   articleDetailStyle: {
-    backgroundColor: '#0e080f'
+    backgroundColor: '#101213'
   },
   /** 发布动态 */
   sendDynamicStyle: {
-    backgroundColor: '#0e080f'
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat'
   },
   /** 聊天机器人 */
   chatViewStyle: {
     /** 描述文本颜色 */
-    textCorlor: 'rgba(255, 255, 255, 0.6)',
-    backgroundColor: '#0e080f',
+    textCorlor: 'rgba(255, 255, 255, 0.8)',
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat',
     btnStyle: {
-      width: '227px',
-      height: '56px',
+      width: '264px',
+      height: '58px',
       color: 'rgba(255, 255, 255, 1)',
       rightIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_ai_chat_arr.png',
       rightIconWidth: '21px',
@@ -161,26 +161,26 @@ export default {
       /** 标题文本 */
       titleTextStyle: {
         fontSize: '20px',
-        fontWeight: '400',
-        color: '#0e080f'
+        fontWeight: '700',
+        color: '#0E1C42'
       },
       /** 描述文本样式 */
       descTextStyle: {
-        fontSize: '14px',
+        fontSize: '16px',
         fontWeight: '400',
-        color: '#0e080f99'
+        color: '#576073'
       },
       /** 背景样式 */
       bgImageStyle: {
-        width: '280px',
-        height: '210px',
+        width: '278px',
+        height: '632px',
         bgImg: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_ai_pay_bg.png'
       }
     }
   },
   /** 聊天详情样式 */
   chatDetailsStyle: {
-    backgroundColor: '#0e080f',
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat',
     /** 顶部文本样式 */
     topTextStyle: {
       borderRadius: '20px',
@@ -201,10 +201,12 @@ export default {
     addIconHeight: '20px',
     /** 留言图标 */
     messageIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_video_comments.png',
-    messageIconWidth: '40px',
-    messageIconHeight: '40px',
+    messageIconWidth: '24px',
+    messageIconHeight: '24px',
     /** 点赞图标 */
     likeIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_like_post.png',
+    likeIconWidth: '24px',
+    likeIconHeight: '24px',
     avatarWidth: '48px',
     avatarHeight: '48px',
     /** 按钮样式 */
@@ -212,55 +214,55 @@ export default {
       width: '162px',
       height: '53px',
       borderRadius: '20px',
-      backgroundColor: 'rgba(255, 255, 255, 0.2)'
+      backgroundColor: 'rgb(0, 0, 0)'
     }
   },
   /** 发布视频样式 */
   publishVideoStyle: {
-    backgroundColor: '#0e080f'
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat'
   },
   /** 其他用户主页样式 */
   otherHomeStyle: {
-    backgroundColor: '#0e080f',
+    backgroundColor: 'rgb(14, 8, 15)',
     /** 关注他人图标 */
     addIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_follow.png',
     addIconWidth: '20px',
     addIconHeight: '20px',
     /** 留言图标 */
     messageIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_video_comments.png',
-    messageIconWidth: '40px',
-    messageIconHeight: '40px',
+    messageIconWidth: '30px',
+    messageIconHeight: '30px',
     /** 点赞图标 */
     likeIcon: 'https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_like_post.png',
-    likeIconWidth: '40px',
-    likeIconHeight: '40px',
+    likeIconWidth: '16px',
+    likeIconHeight: '16px',
     /** 顶部数据样式 */
     topDataStyle: {
       /** 说明 */
       descTextStyle: {
         fontSize: '20px',
-        fontWeight: '400',
+        fontWeight: '700',
         color: '#fff'
       },
       /** 描述 */
       textTextStyle: {
         fontSize: '14px',
         fontWeight: '400',
-        color: 'rgba(255, 255, 255, 0.7)'
+        color: 'rgb(255, 255, 255)'
       }
     },
     /** 左侧描述样式 */
     leftDescStyle: {
-      fontSize: '16px',
+      fontSize: '14px',
       fontWeight: '400',
       color: '#fff'
     },
     /** 右侧按钮样式 */
     rightBtnStyle: {
-      width: '162px',
+      width: '120px',
       height: '53px',
       borderRadius: '20px',
-      backgroundColor: 'rgba(255, 255, 255, 0.2)'
+      backgroundColor: 'rgba(255, 255, 255, 0.1)'
     },
     /** 卡片说明 */
     cardDescStyle: {
@@ -272,38 +274,38 @@ export default {
   },
   /** 举报样式 */
   reportIndexStyle: {
-    backgroundColor: '#0e080f',
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat',
     /** 选项样式 */
     selectBtnStyle: {
       width: '164px',
       height: '115px',
       borderRadius: '20px',
-      backgroundColor: 'rgba(35, 30, 36, 1)',
+      backgroundColor: 'rgb(255, 255, 255)',
       fontSize: '16px',
       fontWeight: '400',
-      color: '#fff'
+      color: 'rgb(14, 28, 66)'
     }
   },
   /** 私聊样式 */
   privateChatStyle: {
-    backgroundColor: '#0e080f'
+    backgroundColor: '#EBECED'
   },
   /** 设置页样式 */
   settingStyle: {
-    backgroundColor: '#0e080f',
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat',
     /** 按钮文本样式 */
     btnTextStyle: {
-      backgroundColor: 'linear-gradient(136deg, rgba(255, 94, 135, 1) 60%, rgba(71, 252, 255, 1) 100%)',
-      fontSize: '16px',
-      fontWeight: '400',
+      backgroundColor: 'linear-gradient(136deg, rgba(25, 251, 193, 1) 0%, rgba(107, 208, 255, 1) 100%)',
+      fontSize: '20px',
+      fontWeight: '700',
       color: '#fff'
     },
     /** 选择项样式 */
     selectBtnStyle: {
       width: '100%',
-      height: '46px',
-      borderRadius: '12px',
-      backgroundColor: '#231e24',
+      height: '52px',
+      borderRadius: '20px',
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
       color: '#fff',
       fontSize: '16px',
       fontWeight: '400'
@@ -311,30 +313,30 @@ export default {
   },
   /** 关注页样式 */
   followStyle: {
-    backgroundColor: '#0e080f'
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat'
   },
   /** 粉丝页样式 */
   fansStyle: {
-    backgroundColor: '#0e080f'
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat'
   },
   /** 黑名单页样式 */
   blackListStyle: {
-    backgroundColor: '#0e080f'
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat'
   },
   /** 编辑页样式 */
   editStyle: {
-    backgroundColor: '#0e080f'
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat'
   },
   /** 金币充值 */
   coinStyle: {
-    backgroundColor: '#0e080f',
+    background: 'url(https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_tbhmrklmdofibjpocixvjbermglfs.png) center center / cover no-repeat',
     /** 选项设置 */
     selectBtnStyle: {
-      width: '105px',
-      height: '100px',
-      borderRadius: '24px',
-      backgroundColor: 'rgba(35, 30, 36, 1)',
-      selectedColor: 'linear-gradient(151.23deg, rgba(255, 94, 135, 1) 0%, rgba(48, 156, 133, 1) 100%)'
+      width: '100%',
+      height: '64px',
+      borderRadius: '20px',
+      backgroundColor: 'rgb(255, 255, 255)',
+      selectedColor: 'rgb(51, 51, 51)'
     }
   }
 } satisfies Window['styleJson']

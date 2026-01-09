@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import ChatBack from '@/assets/public/chat-index.png'
-  import MasonryIcon from '@/assets/public/masonry-icon.png'
+  import MasonryIcon from '@/assets/public/my-icon.png'
   import { useAppImgStyle } from '@/hooks/useAppImgStyle'
   import { useJump } from '@/hooks/useJump'
   import { useWindow } from '@/hooks/useWindow'
@@ -10,7 +10,7 @@
     name: 'ChatView'
   })
 
-  const { chatBtnIcon, chatBgImage } = useAppImgStyle()
+  const { chatBgImage } = useAppImgStyle()
   const { winUserData, winUserListData, winChatBotDesc } = useWindow()
   const { userInfo } = useUserStore()
   const { jumpToRecharge, appParams, jumpToChatDetail } = useJump()
@@ -40,7 +40,7 @@
 
 <template>
   <div relative class="chat-view_box">
-    <van-image :src="ChatBack" fit="cover" class="top-back" />
+    <van-image :src="ChatBack" fit="contain" class="top-back" height="32vh" />
     <div class="text-center w-full top-34vh absolute">
       <ul p-layout-padding>
         <li ai-input-title>{{ winChatBotDesc.title }}</li>
@@ -51,25 +51,27 @@
           {{ winChatBotDesc.content }}
         </li>
         <li flex justify-center class="public-btoom-btn">
-          <p
+          <div
             ai-gradient-btn
             class="bottom-btn public_btn"
             @click="onSubmit"
           >
-            <van-image h-12 w-12 :src="MasonryIcon" fit="cover" />
+          <div class="c">
+            <van-image h-12 w-12 :src="MasonryIcon" fit="cover" width="45px" height="39px" />
             <span text-5 font-400 ml-1>
               X {{ winChatBotDesc.points }}
             </span>
             <span text-4 font-400 ml-8 mr-1>Chat</span>
-            <van-image
+            <!-- <van-image
               :src="chatBtnIcon"
               fit="cover"
               :style="{
                 width: 'var(--ai-btn-arr-image-width)',
                 height: 'var(--ai-btn-arr-image-height)'
               }"
-            />
-          </p>
+            /> -->
+          </div>
+</div>
         </li>
       </ul>
     </div>
@@ -84,9 +86,11 @@
           >
             <span mt-18>Sorry</span>
             <span mt-3>your current balance is insufficient</span>
-          </div>
-          <div mt-8 flex justify-center>
-            <p ai-gradient-btn @click="jumpToRecharge()">Recharge</p>
+            <div mt-8 flex justify-center style="width: 200px;">
+              <div ai-gradient-btn @click="jumpToRecharge()">
+                <div class="c">Recharge</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -95,6 +99,17 @@
 </template>
 
 <style lang="less" scoped>
+  .c {
+    background: #000000;
+    border-radius: 26px;
+    margin: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
   .chat-view_box {
     background: var(--ai-chat-view-bg-color);
     height: 100vh;
@@ -120,7 +135,7 @@
   }
 
   .block {
-    margin-top: 20vh;
+    // margin-top: 20vh;
     height: 300px;
 
     .content {

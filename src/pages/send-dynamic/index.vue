@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { showLoadingToast, showSuccessToast, showToast, closeToast } from 'vant'
+  import { closeToast, showLoadingToast, showSuccessToast, showToast } from 'vant'
   import { useJump } from '@/hooks/useJump'
   import { useWindow } from '@/hooks/useWindow'
   import { useUserStore } from '@/stores'
@@ -108,7 +108,7 @@
       <!-- 底部按钮 -->
       <div mt-20 flex justify-center class="public-btoom-btn">
         <div ai-gradient-btn class="public_btn" @click="onSubmit">
-          Release
+          <div class="c">Release</div>
         </div>
       </div>
     </div>
@@ -116,6 +116,17 @@
 </template>
 
 <style lang="less" scoped>
+  .c {
+    background: #000000;
+    border-radius: 26px;
+    margin: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
   .send-dynamic_box {
     padding-top: calc(
       var(--van-nav-bar-height) + var(--ai-view-padding-top)

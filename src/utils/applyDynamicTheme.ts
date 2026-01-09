@@ -5,43 +5,43 @@ export const applyDynamicTheme = () => {
   const styleJson = window.styleJson
   const root = document.documentElement.style
 
-  //返回图片大小
+  // 返回图片大小
   root.setProperty('--back-image-width', styleJson?.backImageSize?.width || '24px')
   root.setProperty('--back-image-height', styleJson?.backImageSize?.height || '24px')
 
-  //举报图片大小
+  // 举报图片大小
   root.setProperty('--report-image-width', styleJson?.reportImageSize?.width || '24px')
   root.setProperty('--report-image-height', styleJson?.reportImageSize?.height || '24px')
 
-  //帖子点赞图片大小（不高亮）
+  // 帖子点赞图片大小（不高亮）
   root.setProperty('--unlike-image-width', styleJson?.unlikeImageSize?.width || '40px')
   root.setProperty('--unlike-image-height', styleJson?.unlikeImageSize?.height || '40px')
 
-  //帖子发送评论图标
+  // 帖子发送评论图标
   root.setProperty('--comment-input-image-width', styleJson?.inputStyle?.sendIconWidth || '21px')
   root.setProperty('--comment-input-image-height', styleJson?.inputStyle?.sendIconHeight || '21px')
 
-  //ai聊天按钮右箭头
+  // ai聊天按钮右箭头
   root.setProperty('--ai-btn-arr-image-width', styleJson?.chatViewStyle?.btnStyle?.rightIconWidth || '16px')
   root.setProperty('--ai-btn-arr-image-height', styleJson?.chatViewStyle?.btnStyle?.rightIconHeight || '16px')
 
-  //他人主页关注图标
+  // 他人主页关注图标
   root.setProperty('--other-home-follow-width', styleJson?.otherHomeStyle?.addIconWidth || '20px')
   root.setProperty('--other-home-follow-height', styleJson?.otherHomeStyle?.addIconHeight || '20px')
 
-  //他人主页私聊图标
+  // 他人主页私聊图标
   root.setProperty('--other-home-chat-width', styleJson?.otherHomeStyle?.messageIconWidth || '40px')
   root.setProperty('--other-home-chat-height', styleJson?.otherHomeStyle?.messageIconHeight || '40px')
 
-  //他人主页帖子喜欢图标
+  // 他人主页帖子喜欢图标
   root.setProperty('--other-home-like-post-width', styleJson?.otherHomeStyle?.likeIconWidth || '40px')
   root.setProperty('--other-home-like-post-height', styleJson?.otherHomeStyle?.likeIconHeight || '40px')
 
-  //视频详情关注图标
+  // 视频详情关注图标
   root.setProperty('--video-details-follow-width', styleJson?.shortVideoStyle?.addIconWidth || '20px')
   root.setProperty('--video-details-follow-height', styleJson?.shortVideoStyle?.addIconHeight || '20px')
 
-  //视频详情评论图标
+  // 视频详情评论图标
   root.setProperty('--video-details-comment-width', styleJson?.shortVideoStyle?.messageIconWidth || '40px')
   root.setProperty('--video-details-comment-height', styleJson?.shortVideoStyle?.messageIconHeight || '40px')
 
@@ -134,11 +134,11 @@ export const applyDynamicTheme = () => {
   // ---------------
 
   // -------发布动态 - SendDynamic
-  root.setProperty('--ai-send-dynamic-bg-color', styleJson?.sendDynamicStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-send-dynamic-bg-color', styleJson?.sendDynamicStyle?.background || '#0e080f')
   // ---------------
 
   // -------聊天机器人 - ChatView
-  root.setProperty('--ai-chat-view-bg-color', styleJson?.chatViewStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-chat-view-bg-color', styleJson?.chatViewStyle?.background || '#0e080f')
   root.setProperty('--ai-chat-view-text-color', styleJson?.chatViewStyle?.btnStyle?.color || 'rgba(255, 255, 255, 1)')
   root.setProperty('--ai-chat-view-btn-width', styleJson?.chatViewStyle?.btnStyle?.width || '227px')
   root.setProperty('--ai-chat-view-btn-height', styleJson?.chatViewStyle?.btnStyle?.height || '56px')
@@ -156,7 +156,7 @@ export const applyDynamicTheme = () => {
   // ---------------
 
   // -------聊天详情 - ChatDetails
-  root.setProperty('--ai-chat-details-bg-color', styleJson?.chatDetailsStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-chat-details-bg-color', styleJson?.chatDetailsStyle?.background || '#0e080f')
 
   root.setProperty('--ai-chat-details-top-border-radius', styleJson?.chatDetailsStyle?.topTextStyle?.borderRadius || '20px')
   root.setProperty('--ai-chat-details-top-width', styleJson?.chatDetailsStyle?.topTextStyle?.width || '190px')
@@ -186,7 +186,7 @@ export const applyDynamicTheme = () => {
   // ---------------
 
   // -------发布视频 - PublishVideo
-  root.setProperty('--ai-publish-video-bg-color', styleJson?.publishVideoStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-publish-video-bg-color', styleJson?.publishVideoStyle?.background || '#0e080f')
   // ---------------
 
   // -------其他主页 - OtherHome
@@ -224,7 +224,7 @@ export const applyDynamicTheme = () => {
   // ---------------
 
   // -------举报 - ReportIndex
-  root.setProperty('--ai-report-index-bg-color', styleJson?.reportIndexStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-report-index-bg-color', styleJson?.reportIndexStyle?.background || '#0e080f')
   // 选项
   root.setProperty('--ai-report-index-select-style-width', styleJson?.reportIndexStyle?.selectBtnStyle?.width || '164px')
   root.setProperty('--ai-report-index-select-style-height', styleJson?.reportIndexStyle?.selectBtnStyle?.height || '115px')
@@ -240,7 +240,7 @@ export const applyDynamicTheme = () => {
   // ---------------
 
   // -------设置 - Setting
-  root.setProperty('--ai-setting-bg-color', styleJson?.settingStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-setting-bg-color', styleJson?.settingStyle?.background || '#0e080f')
   // 选项
   root.setProperty('--ai-setting-select-style-width', styleJson?.settingStyle?.selectBtnStyle?.width || '100%')
   root.setProperty('--ai-setting-select-style-height', styleJson?.settingStyle?.selectBtnStyle?.height || '46px')
@@ -257,23 +257,23 @@ export const applyDynamicTheme = () => {
   // ---------------
 
   // -------关注 - Follow
-  root.setProperty('--ai-follow-bg-color', styleJson?.followStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-follow-bg-color', styleJson?.followStyle?.background || '#0e080f')
   // ---------------
 
   // -------粉丝 - Fans
-  root.setProperty('--ai-fans-bg-color', styleJson?.fansStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-fans-bg-color', styleJson?.fansStyle?.background || '#0e080f')
   // ---------------
 
   // -------黑名单 - BlackList
-  root.setProperty('--ai-black-list-bg-color', styleJson?.blackListStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-black-list-bg-color', styleJson?.blackListStyle?.background || '#0e080f')
   // ---------------
 
   // -------修改信息 - Edit
-  root.setProperty('--ai-edit-bg-color', styleJson?.editStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-edit-bg-color', styleJson?.editStyle?.background || '#0e080f')
   // ---------------
 
   // -------金币 - Coin
-  root.setProperty('--ai-coin-bg-color', styleJson?.coinStyle?.backgroundColor || '#0e080f')
+  root.setProperty('--ai-coin-bg-color', styleJson?.coinStyle?.background || '#0e080f')
   // 选项设置
   root.setProperty('--ai-coin-select-style-width', styleJson?.coinStyle?.selectBtnStyle?.width || '105px')
   root.setProperty('--ai-coin-select-style-height', styleJson?.coinStyle?.selectBtnStyle?.height || '100px')

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { showSuccessToast,showLoadingToast,closeToast } from 'vant'
+  import { closeToast, showLoadingToast, showSuccessToast } from 'vant'
   import { reactive } from 'vue'
   import defaultHead from '@/assets/public/default-head.png'
   import upImg from '@/assets/public/up-img.png'
@@ -115,7 +115,9 @@
 
     <!-- 底部按钮 -->
     <div mt-50 flex justify-center>
-      <div ai-gradient-btn @click="onSubmit">Save</div>
+      <div ai-gradient-btn @click="onSubmit">
+        <div class="c">Save</div>
+    </div>
     </div>
   </div>
 </template>
@@ -127,5 +129,16 @@
     );
     min-height: 100vh;
     background: var(--ai-edit-bg-color);
+  }
+  .c {
+    background: #000000;
+    border-radius: 26px;
+    margin: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
   }
 </style>

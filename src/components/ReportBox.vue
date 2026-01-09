@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { showLoadingToast,showSuccessToast,closeToast } from 'vant'
+  import { closeToast, showLoadingToast, showSuccessToast } from 'vant'
   import { detailId } from '@/hooks/useDetail'
   import { useJump } from '@/hooks/useJump'
   import { useWindow } from '@/hooks/useWindow'
@@ -69,7 +69,7 @@
         })
         show.value = false
       }, 1000)
-    } catch (e) {
+    } catch {
       closeToast()
     }
   }

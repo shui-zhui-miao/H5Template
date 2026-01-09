@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { showLoadingToast, showSuccessToast, closeToast } from 'vant'
+  import { closeToast, showLoadingToast, showSuccessToast } from 'vant'
   import defaultOptionIcon from '@/assets/public/default-option.png'
   import SelectedIcon from '@/assets/public/selected.png'
   import { useJump } from '@/hooks/useJump'
@@ -59,7 +59,7 @@
           })
         }
       }, 1000)
-    } catch (error) {
+    } catch {
       // 如果失败，也要关 Loading
       closeToast()
     }

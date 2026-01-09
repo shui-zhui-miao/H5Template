@@ -125,7 +125,13 @@
 
 <template>
   <div v-if="!loading" class="other-home_box">
-    <div class="top-user-info">
+    <div class="top-user-info" :style="{
+        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%), url(${userInfo.avator || Head})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }"
+>
       <div class="avatar-info">
         <van-image
           round
@@ -143,11 +149,11 @@
             absolute
             :src="otherHomeAddIcon"
             fit="cover"
-            @click="onFollow"
             :style="{
               width: 'var(--other-home-follow-width)',
               height: 'var(--other-home-follow-height)'
             }"
+            @click="onFollow"
           />
         </div>
         <span mt-1 ai-user-name>{{ userInfo.name }}</span>
@@ -171,12 +177,16 @@
         <li
           v-if="shouldShowReport(userInfo)"
         >
-          <van-image :src="otherHomeMessageIcon" class="icon-box" 
+          <van-image :src="otherHomeMessageIcon" class="icon-box"
             :style="{
               width: 'var(--other-home-chat-width)',
               height: 'var(--other-home-chat-height)'
-            }"/>
-          <span ml-3 class="public-number !mt-0" @click="onAddChat">
+            }"
+/>
+          <!-- <span ml-3 class="public-number !mt-0" @click="onAddChat">
+            Chat
+          </span> -->
+          <span class="c" @click="onAddChat">
             Chat
           </span>
         </li>
@@ -197,10 +207,10 @@
             <span mx-2 ai-user-name>Apien</span>
             <span ai-tag-btn class="tag"># Theme</span>
           </li> -->
-          <li />
+          <!-- <li /> -->
           <li>
             <van-image
-              v-if="shouldShowReport(item)" 
+              v-if="shouldShowReport(item)"
               :src="reportIcon"
               :style="{
                 width: 'var(--report-image-width)',
@@ -237,7 +247,8 @@
           <van-image :src="otherHomeLikeIcon" class="icon-box" :style="{
               width: 'var(--other-home-like-post-width)',
               height: 'var(--other-home-like-post-height)'
-            }"/>
+            }"
+/>
           <span class="public-number">{{ item.dynamicLikeCount }}</span>
         </div>
       </div>
@@ -248,13 +259,25 @@
 </template>
 
 <style lang="less" scoped>
+  .c {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(90deg, rgba(25, 251, 193, 1) 0%, rgba(107, 208, 255, 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
   .other-home_box {
     min-height: 100vh;
     background: var(--ai-other-home-bg-color);
-  } 
+  }
 
   .top-user-info {
-    background: url('@/assets/public/top-home.png');
+    // background: url('@/assets/public/top-home.png');
     background-size: cover;
     width: 100%;
     height: 346px;
@@ -320,7 +343,7 @@
     .user-head {
       width: 83px;
       height: 83px;
-      border: 3px solid #fff;
+      border: 2px solid #19FBC1;
     }
   }
 

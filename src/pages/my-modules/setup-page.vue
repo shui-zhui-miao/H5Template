@@ -52,24 +52,35 @@
     <!-- 按钮 -->
     <ul mt-60>
       <li flex justify-center>
-        <p
+        <div
           ai-gradient-btn
           class="bottom-btn"
           @click="onState('deleteaccount')"
         >
-          Delete account
-        </p>
+        <div class="c">Delete account</div>
+      </div>
       </li>
       <li mt-5 flex justify-center>
-        <p ai-gradient-btn class="bottom-btn" @click="onState('logout')">
-          Log out
-        </p>
+        <div ai-gradient-btn class="bottom-btn" @click="onState('logout')">
+          <div class="c">Log out</div>
+        </div>
       </li>
     </ul>
   </div>
 </template>
 
 <style lang="less" scoped>
+  .c {
+    background: #000000;
+    border-radius: 26px;
+    margin: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
   .setup-page_box {
     padding-top: calc(
       var(--van-nav-bar-height) + var(--ai-view-padding-top)
