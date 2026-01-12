@@ -122,8 +122,9 @@
 
 <template>
   <div text-red class="chat-details_box">
+    <div style="height: 35px;" />
     <div class="top-box">
-      <ul p-layout-padding>
+      <!-- <ul p-layout-padding>
         <li>
           <span>I'm feeling great today.</span>
           <van-icon name="chat-o" />
@@ -136,7 +137,7 @@
           <span>Can you comfort me?</span>
           <van-icon name="chat-o" />
         </li>
-      </ul>
+      </ul> -->
     </div>
 
     <chat-list
@@ -157,32 +158,34 @@
   }
 
   .top-box {
-    height: 282px;
+    height: 300px;
     background: url('@/assets/public/top-chat.png');
-    background-size: cover;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: flex-end;
 
-    ul {
-      li + li {
-        margin-top: 16px;
-      }
+    // ul {
+    //   li + li {
+    //     margin-top: 16px;
+    //   }
 
-      li {
-        border-radius: var(--ai-chat-details-top-border-radius);
-        padding: 0 12px;
-        width: var(--ai-chat-details-top-width);
-        height: var(--ai-chat-details-top-height);
-        line-height: var(--ai-chat-details-top-height);
-        font-size: var(--ai-chat-details-top-text-font-size);
-        font-weight: var(--ai-chat-details-top-text-font-weight);
-        background: var(--ai-chat-details-top-text-bg-color);
-        letter-spacing: 0;
-        color: var(--ai-chat-details-top-text-color);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
+    //   li {
+    //     border-radius: var(--ai-chat-details-top-border-radius);
+    //     padding: 0 12px;
+    //     width: var(--ai-chat-details-top-width);
+    //     height: var(--ai-chat-details-top-height);
+    //     line-height: var(--ai-chat-details-top-height);
+    //     font-size: var(--ai-chat-details-top-text-font-size);
+    //     font-weight: var(--ai-chat-details-top-text-font-weight);
+    //     background: var(--ai-chat-details-top-text-bg-color);
+    //     letter-spacing: 0;
+    //     color: var(--ai-chat-details-top-text-color);
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-between;
+    //   }
+    // }
   }
 </style>

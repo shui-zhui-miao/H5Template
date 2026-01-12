@@ -1,10 +1,9 @@
 <script setup lang="ts">
   import Head from '@/assets/public/Head.png'
-  import { useAppImgStyle } from '@/hooks/useAppImgStyle'
+  import gi from '@/assets/public/vejivnfnvn.png'
   import { detailId } from '@/hooks/useDetail'
   import { useUserStore } from '@/stores'
 
-  const { reportIcon } = useAppImgStyle()
   const { userInfo } = useUserStore()
 
   const props = withDefaults(
@@ -29,24 +28,27 @@
       p-4
       ai-fill-bg
       ai-rounded
-      class="card-comment"
+      class="card-comment c"
     >
       <ul flex items-center justify-between>
         <li flex items-center>
-          <van-image
-            round
-            ai-avatar
-            :src="item?.avator || Head"
-            fit="cover"
-          />
+          <div class="avatar-border-wrapper">
+            <van-image
+              round
+              ai-avatar
+              :src="item?.avator || Head"
+              fit="cover"
+              class="avatar-img"
+            />
+          </div>
           <span ml-3 ai-user-name>{{ item?.name || '' }}</span>
         </li>
         <li v-if="userInfo.userId !== item.userId" flex items-center>
-          <van-image 
-            :src="reportIcon"
+          <van-image
+            :src="gi"
             :style="{
-              width: 'var(--report-image-width)',
-              height: 'var(--report-image-height)'
+              width: '24px',
+              height: '24px'
             }"
             @click="
               () => {
@@ -65,7 +67,26 @@
 </template>
 
 <style lang="less" scoped>
+  .avatar-border-wrapper {
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(25, 251, 193, 1) 0%, rgba(107, 208, 255, 1) 100%);
+    box-sizing: border-box;
+  }
+
+  .avatar-img {
+    display: block;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+  }
   .card-comment + .card-comment {
     margin-top: 12px;
-  } 
+
+  }
+  .c{
+    background-color: rgba(134, 134, 134, 0.16);
+  }
 </style>

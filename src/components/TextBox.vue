@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<{
 <style lang="less" scoped>
 .text-box {
   .van-field {
-    border-radius: 30px;
+    border-radius: 16px;
   }
 
   :deep(.van-cell) {

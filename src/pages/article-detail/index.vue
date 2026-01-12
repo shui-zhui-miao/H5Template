@@ -40,7 +40,7 @@
         </van-swipe-item>
       </van-swipe>
       <div
-        p-5
+        pr-5
         text-end
         flex
         flex-col
@@ -49,7 +49,7 @@
         absolute
         class="bottom-[-64px]"
       >
-        <van-image 
+        <van-image
           :src="isLike ? likeIcon : detailLikeIcon"
           :style="{
             width: 'var(--unlike-image-width)',
@@ -58,6 +58,7 @@
           fit="cover"
           @click="onLike"
         />
+        <div style="height: 4px;" />
         <span class="public-number">
           {{ dynamicInfo?.dynamicLikeCount }}
         </span>
@@ -67,12 +68,15 @@
     <div mt-5 px-layout-padding w-full>
       <ul flex>
         <li flex shrink flex-col items-center @click="onAvator">
-          <van-image
-            round
-            ai-avatar
-            :src="dynamicInfo?.avator || Head"
-            fit="cover"
-          />
+          <div class="avatar-border-wrapper">
+            <van-image
+              round
+              ai-avatar
+              :src="dynamicInfo?.avator || Head"
+              fit="cover"
+              class="avatar-img"
+            />
+          </div>
           <span mt-1 ai-user-name>{{ dynamicInfo?.name }}</span>
         </li>
         <li ml-5 class="w-[60%]">
@@ -101,6 +105,21 @@
 </template>
 
 <style lang="less" scoped>
+  .avatar-border-wrapper {
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(25, 251, 193, 1) 0%, rgba(107, 208, 255, 1) 100%);
+    box-sizing: border-box;
+  }
+
+  .avatar-img {
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
   .article-detail_box {
     background: var(--ai-article-detail-bg-color);
     min-height: 100vh;
@@ -114,5 +133,5 @@
 
   .article-comment-card_box {
     padding-bottom: calc(80px + var(--ai-view-padding-bottom));
-  } 
+  }
 </style>

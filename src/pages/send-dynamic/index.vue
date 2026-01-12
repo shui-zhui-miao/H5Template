@@ -78,6 +78,7 @@
 
 <template>
   <div safe-area-inset-top px-layout-padding class="send-dynamic_box">
+    <div style="height: 20px;" />
     <!-- 输入框 -->
     <text-box v-model="formData.dynamicDesc" />
 

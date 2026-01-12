@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import ChatBack from '@/assets/public/chat-index.png'
+  import bkd from '@/assets/public/gerhibhsdkbn.png'
   import MasonryIcon from '@/assets/public/my-icon.png'
+  import bk from '@/assets/public/rklgojhbksjnfib.png'
   import { useAppImgStyle } from '@/hooks/useAppImgStyle'
   import { useJump } from '@/hooks/useJump'
   import { useWindow } from '@/hooks/useWindow'
@@ -41,12 +43,15 @@
 <template>
   <div relative class="chat-view_box">
     <van-image :src="ChatBack" fit="contain" class="top-back" height="32vh" />
-    <div class="text-center w-full top-34vh absolute">
+    <div class="text-center w-full top-34vh">
       <ul p-layout-padding>
-        <li ai-input-title>{{ winChatBotDesc.title }}</li>
+        <div class="c1">
+          <li ai-input-title>{{ winChatBotDesc.title }}</li>
+          <van-image :src="bk" class="c2" />
+        </div>
         <li
           ai-text-desc
-          class="mt-7 !text-[var(--ai-chat-view-text-color)] content_box"
+          class="mt-2 !text-[var(--ai-chat-view-text-color)] content_box"
         >
           {{ winChatBotDesc.content }}
         </li>
@@ -58,7 +63,7 @@
           >
           <div class="c">
             <van-image h-12 w-12 :src="MasonryIcon" fit="cover" width="45px" height="39px" />
-            <span text-5 font-400 ml-1>
+            <span text-5 font-700 ml-1>
               X {{ winChatBotDesc.points }}
             </span>
             <span text-4 font-400 ml-8 mr-1>Chat</span>
@@ -84,8 +89,12 @@
             class="content"
             style="background-size: cover"
           >
-            <span mt-18>Sorry</span>
-            <span mt-3>your current balance is insufficient</span>
+            <van-image :src="bkd" width="170px" height="30px" />
+
+            <div class="balance-container">
+              <div class="balance-text sorry-text">Sorry</div>
+              <div class="balance-text insufficient-text">your current balance is insufficient</div>
+            </div>
             <div mt-8 flex justify-center style="width: 200px;">
               <div ai-gradient-btn @click="jumpToRecharge()">
                 <div class="c">Recharge</div>
@@ -99,6 +108,43 @@
 </template>
 
 <style lang="less" scoped>
+  .balance-container {
+    width: 212px;
+    height: 192px;
+    background-image: url('@/assets/public/vyakbvnkjanfv.png');
+    background-size: cover;
+    padding: 0 26px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 18px;
+  }
+
+  .sorry-text {
+    margin-top: 86px;
+    color: #0E1C42;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .insufficient-text {
+    margin-top: 10px;
+    color: #576073;
+    font-size: 16px;
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+  }
+  .c2{
+    width: 24px;
+    height: 26px;
+    transform: translateY(-10px);
+  }
+  .c1{
+    display: flex;
+    justify-content: center;
+  }
   .c {
     background: #000000;
     border-radius: 26px;
@@ -117,12 +163,16 @@
     .content_box {
       background: var(--ai-chat-view-bg-color);
       padding-bottom: calc(50px + var(--ai-view-padding-bottom));
+      text-align: center;
+      font-size: 20px;
+      font-weight: 400;
     }
   }
 
   .top-back {
     width: 100%;
     height: 510px;
+    margin-top: 35px;
   }
 
   .bottom-btn {
@@ -143,20 +193,9 @@
       height: var(--ai-chat-view-popup-bg-img-height);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      span {
-        color: var(--ai-chat-view-popup-title-text-color);
-        font-size: var(--ai-chat-view-popup-title-font-size);
-        font-weight: var(--ai-chat-view-popup-title-font-weight);
-
-        &:nth-child(2) {
-          color: var(--ai-chat-view-popup-desc-text-color);
-          font-size: var(--ai-chat-view-popup-desc-text-size);
-          font-weight: var(--ai-chat-view-popup-desc-text-weight);
-        }
-      }
+      justify-content: end;
+      align-items: center ;
+      padding-bottom: 20px;
     }
   }
 </style>

@@ -8,7 +8,7 @@
     name: 'ShortVideo'
   })
 
-  const { reportIcon, addIcon, messageIcon, detailLikeIcon, likeIcon } =
+  const { addIcon, messageIcon, detailLikeIcon, likeIcon } =
     useAppImgStyle()
   const { userInfo } = useUserStore()
   const {
@@ -71,16 +71,55 @@
       @click="togglePlay"
     />
     <div p-layout-padding class="bottom-box">
+    <ul class="bottom-btn">
+      <div class="vertical-btn-group">
+        <li class="btn-container" @click="onVideoLike">
+          <div class="btn-inner">
+            <van-image
+              :src="isVideoLike ? likeIcon : detailLikeIcon"
+              class="icon-box"
+              :style="{
+                width: 'var(--unlike-image-width)',
+                height: 'var(--unlike-image-height)'
+              }"
+            />
+            <div style="height: 4px;" />
+            <span class="public-number">
+              {{ dynamicInfo?.dynamicLikeCount }}
+            </span>
+          </div>
+        </li>
+        <div class="btn-spacing" />
+        <li class="btn-container" @click="isPopup = true">
+          <div class="btn-inner">
+            <van-image
+              :src="messageIcon"
+              class="icon-box"
+              :style="{
+                width: 'var(--video-details-comment-width)',
+                height: 'var(--video-details-comment-height)'
+              }"
+            />
+            <div style="height: 4px;" />
+            <span class="public-number">
+              {{ dynamicInfo?.dynamicCommentCount }}
+            </span>
+          </div>
+        </li>
+      </div>
+    </ul>
       <div mb-5 flex>
         <div h-12 w-12 relative>
-          <van-image
-            round
-            ai-avatar
-            :src="dynamicInfo?.avator || Head"
-            fit="cover"
-            class="user-head"
-            @click="onAvator"
-          />
+          <div class="avatar-wrapper">
+            <van-image
+              round
+              ai-avatar
+              :src="dynamicInfo?.avator || Head"
+              fit="cover"
+              class="user-head"
+              @click="onAvator"
+            />
+          </div>
           <van-image
             v-if="!isFollow && userInfo.userId !== dynamicInfo?.userId"
             round
@@ -89,25 +128,16 @@
             absolute
             :src="addIcon"
             fit="cover"
-            @click="onFollow"
             :style="{
               width: 'var(--video-details-follow-width)',
               height: 'var(--video-details-follow-height)'
             }"
+            @click="onFollow"
           />
         </div>
         <ul ml-3 shrink w-full>
           <li flex justify-between>
             <span ai-user-name>{{ dynamicInfo?.name }}</span>
-            <van-image
-              v-if="userInfo.userId !== dynamicInfo?.userId"
-              :src="reportIcon"
-              :style="{
-                width: 'var(--report-image-width)',
-                height: 'var(--report-image-height)'
-              }"
-              @click="isReport = true"
-            />
           </li>
           <li>
             <span mt-1 ai-text-desc>
@@ -116,35 +146,6 @@
           </li>
         </ul>
       </div>
-      <ul class="bottom-btn">
-        <li @click="isPopup = true">
-          <van-image 
-            :src="messageIcon" 
-            class="icon-box"
-            :style="{
-              width: 'var(--video-details-comment-width)',
-              height: 'var(--video-details-comment-height)'
-            }" 
-          />
-          <span class="public-number">
-            {{ dynamicInfo?.dynamicCommentCount }}
-          </span>
-        </li>
-        <li>
-          <van-image
-            :src="isVideoLike ? likeIcon : detailLikeIcon"
-            class="icon-box"
-            :style="{
-              width: 'var(--unlike-image-width)',
-              height: 'var(--unlike-image-height)'
-            }"
-            @click="onVideoLike"
-          />
-          <span class="public-number">
-            {{ dynamicInfo?.dynamicLikeCount }}
-          </span>
-        </li>
-      </ul>
     </div>
 
     <popup-box v-model:show="isPopup">
@@ -165,9 +166,27 @@
 </template>
 
 <style lang="less" scoped>
+  .avatar-wrapper {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(25, 251, 193, 1) 0%, rgba(107, 208, 255, 1) 100%);
+    box-sizing: border-box;
+  }
+
+  .avatar-wrapper .user-head {
+    display: block;
+    border-radius: 50%;
+  }
+
+  .avatar-wrapper :deep(.van-image__img) {
+    border-radius: 50%;
+  }
+
   .video-comment-card_box {
     padding-bottom: calc(60px + var(--ai-view-padding-bottom));
-  }  
+  }
   .video-box {
     width: 100%;
     height: 100vh;
@@ -177,6 +196,7 @@
       width: 100%;
       height: 100%;
       background: var(--ai-short-video-bg-color);
+      object-fit: cover;
     }
 
     .play-box {
@@ -185,7 +205,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 64px;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 1);
     }
 
     .bottom-box {
@@ -201,32 +221,56 @@
       height: var(--ai-short-video-avatar-height);
     }
 
-    .bottom-btn {
-      display: flex;
-      justify-content: space-between;
+.bottom-btn {
+  display: flex;
+  justify-content: flex-end; /* 对应 MainAxisAlignment.end */
+  align-items: center;
+}
 
-      li {
-        position: relative;
-        width: var(--ai-short-video-bottom-btn-width);
-        height: var(--ai-short-video-bottom-btn-height);
-        border-radius: var(--ai-short-video-bottom-btn-border-radius);
-        background: var(--ai-short-video-bottom-btn-bg-color);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+.vertical-btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-        .icon-box {
-          position: absolute;
-          bottom: 26px;
-          z-index: 1;
-        }
+.btn-container {
+  position: relative;
+  width: 44px;
+  height: 66px;
+  background: linear-gradient(180deg, #6BD0FF 0%, #19FBC1 100%);
+  border-radius: 50px;
+  padding: 1px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 
-        .public-number {
-          font-size: 20px !important;
-          margin-top: 22px;
-        }
-      }
-    }
+.btn-inner {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-spacing {
+  height: 18px; /* 对应 SizedBox(height: 18) */
+}
+
+.icon-box {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 4px;
+}
+
+.public-number {
+  font-size: 20px !important;
+  color: white;
+}
   }
 </style>

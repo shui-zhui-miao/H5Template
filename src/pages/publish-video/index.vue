@@ -78,7 +78,8 @@
 
 <template>
   <div px-layout-padding class="publish-video_box">
-    <text-box v-model="formData.dynamicDesc" maxlength="50" rows="3" />
+    <div style="height: 20px;" />
+    <text-box v-model="formData.dynamicDesc" maxlength="50" rows="5" />
 
     <!-- 视频上传 -->
     <div my-6>
@@ -116,6 +117,8 @@
     align-items: center;
     justify-content: center;
     color: white;
+    font-size: 20px;
+    font-weight: 700;
   }
   .publish-video_box {
     min-height: 100vh;

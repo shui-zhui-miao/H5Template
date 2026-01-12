@@ -9,9 +9,16 @@ const show = defineModel<boolean>('show', {
 </script>
 
 <template>
-  <van-popup v-model:show="show" safe-area-inset-top safe-area-inset-bottom round closeable position="bottom">
+  <van-popup v-model:show="show" safe-area-inset-bottom round position="bottom" class="c">
     <slot />
   </van-popup>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+  .c{
+    background: url('@/assets/public/svhbdvjneibs.png');
+    background-size: 100% 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+</style>
