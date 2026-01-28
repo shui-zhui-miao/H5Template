@@ -2,6 +2,7 @@
   import { computed } from 'vue'
   import HangIcon from '@/assets/public/hang-icon.png'
   import Head from '@/assets/public/Head.png'
+  import { detailId } from '@/hooks/useDetail'
   import { useJump } from '@/hooks/useJump'
   import { useWindow } from '@/hooks/useWindow'
 
@@ -19,6 +20,7 @@
     userData.value = winUserListData.find(v => v.userId === queryId.value)
     loading.value = false
   }
+  const isReport = ref(false)
 
   const onBack = () => {
     router.replace({
@@ -43,6 +45,18 @@
 
 <template>
   <div class="call-box" :style="backgroundStyle">
+    <van-image
+      src="https://huanniuchat.oss-accelerate.aliyuncs.com/template_development/soeva_report.png"
+      h-10
+      w-10
+      class="report-btn"
+      @click="
+        () => {
+          detailId = userData.userId
+          isReport = true
+        }
+      "
+    />
     <div v-if="!loading" flex flex-col justify-center items-center>
       <div flex flex-col justify-center items-center>
         <div class="multi-circle-avatar">
@@ -64,18 +78,19 @@
         </div>
       </div>
 
-     <div class="call-info-container">
-      <div class="call-info-box">
-        <div class="text-info">
-          <div class="name">{{ userData.name }}</div>
-          <div class="status">Calling...</div>
-        </div>
-        <div class="hangup-btn" @click="onBack">
-          <van-image round :src="HangIcon" fit="cover" />
+      <div class="call-info-container">
+        <div class="call-info-box">
+          <div class="text-info">
+            <div class="name">{{ userData.name }}</div>
+            <div class="status">Calling...</div>
+          </div>
+          <div class="hangup-btn" @click="onBack">
+            <van-image round :src="HangIcon" fit="cover" />
+          </div>
         </div>
       </div>
     </div>
-</div>
+    <report-box v-model:show="isReport" />
   </div>
 </template>
 
@@ -180,5 +195,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+  }
+  .report-btn {
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    z-index: 10;
   }
 </style>
