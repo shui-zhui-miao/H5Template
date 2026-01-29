@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { showToast } from 'vant'
   import { computed, onUnmounted } from 'vue'
   import HangIcon from '@/assets/public/hang-icon.png'
   import Head from '@/assets/public/Head.png'
@@ -18,7 +19,6 @@
   const loading = ref(true)
   const isReport = ref(false)
 
-  // 添加定时器变量
   const autoReturnTimer = ref<NodeJS.Timeout | null>(null)
 
   const getData = () => {
@@ -27,7 +27,6 @@
   }
 
   const onBack = () => {
-    // 清理定时器
     if (autoReturnTimer.value) {
       clearTimeout(autoReturnTimer.value)
       autoReturnTimer.value = null
@@ -39,25 +38,27 @@
     })
   }
 
-  // 设置自动返回的定时器
   const setupAutoReturn = () => {
-    // 随机生成5-6秒的时间
-    const delay = Math.floor(Math.random() * 1000) + 5000 // 5000-6000ms
+    const delay = Math.floor(Math.random() * 1000) + 5000
 
     autoReturnTimer.value = setTimeout(() => {
-      console.log('自动返回私聊界面')
-      onBack()
+      showToast({
+        message: 'call declined by the other party',
+        position: 'middle',
+        duration: 1500,
+        onClose: () => {
+          onBack()
+        }
+      })
     }, delay)
   }
 
   onMounted(() => {
     getData()
 
-    // 数据加载完成后设置自动返回
     if (!loading.value) {
       setupAutoReturn()
     } else {
-      // 如果数据还在加载，等待一下再设置
       const checkDataLoaded = setInterval(() => {
         if (!loading.value) {
           clearInterval(checkDataLoaded)
@@ -67,7 +68,6 @@
     }
   })
 
-  // 组件卸载时清理定时器
   onUnmounted(() => {
     if (autoReturnTimer.value) {
       clearTimeout(autoReturnTimer.value)
